@@ -10,7 +10,7 @@ function standards_example_function( $color ) {
 		'meta_query' => array(
 			array(
 				'key' => 'color',
-				'value' =>  $color,
+				'value' => $color,
 				'compare' => 'NOT LIKE',
 			),
 		),
