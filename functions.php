@@ -1,8 +1,10 @@
 <?php
 /**
- * @package LoopConf
+ * The base customizations for this theme.
  *
- * Theme customizations
+ * Holds a few custom functions intended solely for the LoopConf code review demo.
+ *
+ * @package WordPress
  */
 
 /**
