@@ -1,1 +1,1 @@
-# code-review
+# Code review examples for LoopConf 2016
