@@ -14,13 +14,21 @@
  * @return array
  */
 function standards_example_function( $color ) {
-	return get_posts( array(
-		'meta_query' => array(
-			array(
-				'key' => 'color',
-				'value' => $color,
-				'compare' => 'NOT LIKE',
+	$cache_key = 'color-transient-' . $color;
+
+	if ( false === ( $posts = get_transient( $cache_key ) ) ) {
+		$posts = get_posts( array(
+			'meta_query' => array(
+				array(
+					'key' => 'color',
+					'value' => $color,
+					'compare' => 'NOT LIKE',
+				),
 			),
-		),
-	) );
+		) );
+
+		set_transient( $cache_key, $posts, 900 );
+	}
+
+	return $posts;
 }
