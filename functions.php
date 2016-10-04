@@ -52,14 +52,3 @@ add_action( 'save_post', 'validation_example_function' );
 function escaping_example_function( $post_id ) {
 	echo esc_html( get_post_meta( $post_id, 'some_key' ) );
 }
-
-/**
- * Gets paid posts if the user has a subscription.
- *
- * @return array
- */
-function optimization_example_function() {
-	$user = get_current_user_id();
-
-
-}
