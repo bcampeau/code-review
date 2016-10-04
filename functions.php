@@ -39,7 +39,7 @@ function standards_example_function( $color ) {
  * @param int $post_id The post ID.
  */
 function sanitization_example_function( $post_id ) {
-	$sanitized_value = sanitize_text_field( wp_unslash( $_POST['some_key'] ) );
+	$sanitized_value = wp_unslash( sanitize_text_field( $_POST['some_key'] ) );
 	update_post_meta( $post_id, 'some_key', $sanitized_value );
 }
 add_action( 'save_post', 'validation_example_function' );
@@ -51,4 +51,15 @@ add_action( 'save_post', 'validation_example_function' );
  */
 function escaping_example_function( $post_id ) {
 	echo esc_html( get_post_meta( $post_id, 'some_key' ) );
+}
+
+/**
+ * Gets paid posts if the user has a subscription.
+ *
+ * @return array
+ */
+function optimization_example_function() {
+	$user = get_current_user_id();
+
+
 }
