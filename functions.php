@@ -39,12 +39,14 @@ function standards_example_function( $color ) {
  * @param int $post_id The post ID.
  */
 function sanitization_example_function( $post_id ) {
-	update_post_meta( $post_id, 'some_key', $POST['some_key'] );
+	update_post_meta( $post_id, 'some_key', $_POST['some_key'] );
 }
 add_action( 'save_post', 'validation_example_function' );
 
 /**
  * Displays a meta value.
+ *
+ * @param int $post_id The post ID.
  */
 function escaping_example_function( $post_id ) {
 	echo get_post_meta( $post_id, 'some_key' );
