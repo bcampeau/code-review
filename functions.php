@@ -34,6 +34,21 @@ function standards_example_function( $color ) {
 }
 
 /**
+ * Saves a meta value on post save.
+ *
+ * @param int $post_id The post ID.
+ */
+function sanitization_example_function( $post_id ) {
+	if ( ! isset( $_POST['some_key'] ) ) {
+		return;
+	}
+
+	$sanitized_value = sanitize_text_field( wp_unslash( $_POST['some_key'] ) );
+	update_post_meta( $post_id, 'some_key', $sanitized_value );
+}
+add_action( 'save_post', 'sanitization_example_function' );
+
+/**
  * Displays a meta value.
  *
  * @param int $post_id The post ID.
