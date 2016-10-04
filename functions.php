@@ -59,14 +59,12 @@ function escaping_example_function( $post_id ) {
  * @return array
  */
 function optimization_example_function() {
-	$paid_posts = get_posts( array(
+	if ( ! current_user_can( 'read_paid_posts' ) ) {
+		return array();
+	}
+
+	return get_posts( array(
 		'post_status' => 'publish',
 		'post_type' => 'paid',
 	) );
-
-	if ( current_user_can( 'read_paid_posts' ) ) {
-		return $paid_posts;
-	} else {
-		return array();
-	}
 }
