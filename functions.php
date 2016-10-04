@@ -7,10 +7,16 @@
  * @package WordPress
  */
 
-function code_review_example( $post_type) {
+/**
+ * Example function for code review.
+ *
+ * @param string $post_type The post_type for the query.
+ * @return array
+ */
+function code_review_example( $post_type ) {
 	$posts = get_posts( array(
 		'post_type' => $post_type,
-		'posts_per_page' => 1000,
+		'posts_per_page' => 10,
 	) );
 
 	return $posts;
