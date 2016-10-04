@@ -32,3 +32,34 @@ function standards_example_function( $color ) {
 
 	return $posts;
 }
+
+/**
+ * Saves a meta value on post save.
+ *
+ * @param int $post_id The post ID.
+ */
+function sanitization_example_function( $post_id ) {
+	$sanitized_value = sanitize_text_field( wp_unslash( $_POST['some_key'] ) );
+	update_post_meta( $post_id, 'some_key', $sanitized_value );
+}
+add_action( 'save_post', 'validation_example_function' );
+
+/**
+ * Displays a meta value.
+ *
+ * @param int $post_id The post ID.
+ */
+function escaping_example_function( $post_id ) {
+	echo esc_html( get_post_meta( $post_id, 'some_key' ) );
+}
+
+/**
+ * Gets paid posts if the user has a subscription.
+ *
+ * @return array
+ */
+function optimization_example_function() {
+	$user = get_current_user_id();
+
+
+}
