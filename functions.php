@@ -52,3 +52,21 @@ add_action( 'save_post', 'validation_example_function' );
 function escaping_example_function( $post_id ) {
 	echo esc_html( get_post_meta( $post_id, 'some_key' ) );
 }
+
+/**
+ * Gets paid posts if the user has a subscription.
+ *
+ * @return array
+ */
+function optimization_example_function() {
+	$paid_posts = get_posts( array(
+		'post_status' => 'publish',
+		'post_type' => 'paid',
+	) );
+
+	if ( current_user_can( 'read_paid_posts' ) ) {
+		return $paid_posts;
+	} else {
+		return array();
+	}
+}
