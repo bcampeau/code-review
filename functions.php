@@ -32,3 +32,20 @@ function standards_example_function( $color ) {
 
 	return $posts;
 }
+
+/**
+ * Saves a meta value on post save.
+ *
+ * @param int $post_id The post ID.
+ */
+function sanitization_example_function( $post_id ) {
+	update_post_meta( $post_id, 'some_key', $POST['some_key'] );
+}
+add_action( 'save_post', 'validation_example_function' );
+
+/**
+ * Displays a meta value.
+ */
+function escaping_example_function( $post_id ) {
+	echo get_post_meta( $post_id, 'some_key' );
+}
