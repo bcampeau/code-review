@@ -7,6 +7,15 @@
  * @package WordPress
  */
 
+function code_review_example( $post_type) {
+	$posts = get_posts( array(
+		'post_type' => $post_type,
+		'posts_per_page' => 1000,
+	) );
+
+	return $posts;
+}
+
 /**
  * Returns all posts that are not tagged with the given color.
  *
