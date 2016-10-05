@@ -8,6 +8,21 @@
  */
 
 /**
+ * Example function for code review.
+ *
+ * @param string $post_type The post_type for the query.
+ * @return array
+ */
+function code_review_example( $post_type ) {
+	$posts = get_posts( array(
+		'post_type' => $post_type,
+		'posts_per_page' => 10,
+	) );
+
+	return $posts;
+}
+
+/**
  * Returns all posts that are not tagged with the given color.
  *
  * @param string $color The color for the query.
